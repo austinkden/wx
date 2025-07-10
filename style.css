@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans&display=swap');
+
+:root {
+     --primary-50: #f5f2ff;
+    --primary-100: #ebe8ff;
+    --primary-200: #dad4ff;
+    --primary-300: #c0b1ff;
+    --primary-400: #a185ff;
+    --primary-500: #8859ff;
+    --primary-600: #7530f7;
+    --primary-700: #671ee3;
+    --primary-800: #5518bf;
+    --primary-900: #47169c;
+    --primary-950: #2b0b6a;
+
+    --card-stackable: rgba(147, 164, 193, 0.15);
+    --card-1: #121417;
+    --card-2: #22262b;
+    --card-3: #30353d;
+    --card-4: #3c434d;
+
+    --gray-1: #4a525d;
+    --gray-2: #58626f;
+    --gray-3: #6a7482;
+    --gray-4: #7f8895;
+    --gray-5: #98a0ad;
+    --gray-6: #b4bbc5;
+    --gray-7: #d3d6db;
+    --gray-8: #f0f1f3;
+
+             --success: #3ccb69;
+        --success-dark: #217d3f;
+               --alert: #ff9757;
+          --alert-dark: #a46233;
+         --destructive: #eb3f56;
+    --destructive-dark: #8e2637;
+}
+
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'DM Sans', sans-serif;
+   outline: none;
+   scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--primary-950);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--primary-400);
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: var(--primary-500);
+}
+
+body {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   padding: 15px;
+   background: black;
+}
+
+div.alert {
+   display: flex;
+   flex-direction: column;
+   padding: 15px;
+   border-radius: 15px;
+   background: var(--card-1);
+   color: var(--primary-50);
+   user-select: none;
+}
+
+div.alert div.event {
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   cursor: pointer;
+   transition: color 0.2s ease-in-out;
+}
+
+div.alert div.event:hover {
+   color: var(--primary-300);
+}
+
+div.alert h2 {
+   margin-bottom: 5px;
+}
+
+div.alert p.expires {
+   margin-bottom: 5px;
+}
+
+div.alert p.ends {
+   color: var(--gray-5);
+}
+
+div.alert div.event svg {
+   height: 40px;
+   width: 40px;
+}
+
+div.alert div.buttons {
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   margin-top: 10px;
+   align-items: center;
+   justify-content: center;
+   width: fit-content;
+}
+
+div.alert div.buttons button {
+   padding: 10px 15px;
+   border: 1px solid var(--card-4);
+   border-radius: 15px;
+   background: var(--card-2);
+   color: var(--primary-50);
+   cursor: pointer;
+   box-shadow: 0px 0px 10px black;
+   font-size: 15px;
+   transition: color 0.2s ease-in-out;
+}
+
+button#to-top, button#to-bottom {
+   position: fixed;
+   opacity: 0;
+   right: 5px;
+   padding: 10px;
+   border: 1px solid var(--card-4);
+   border-radius: 15px;
+   background: var(--card-1);
+   color: var(--primary-50);
+   cursor: pointer;
+   box-shadow: 0px 0px 10px black;
+   font-size: 15px;
+   transition: opacity 0.2s ease-in-out;
+}
+
+button#to-top:hover, button#to-bottom:hover {
+   opacity: 1;
+}
+
+button#to-top {
+   top: 5px;
+}
+
+button#to-bottom {
+   bottom: 5px;
+}
+
+div.scroll-blur {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 5;
+   opacity: 0;
+   pointer-events: none;
+   backdrop-filter: blur(15px);
+   transition: opacity 0.2s ease-in-out;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+div.scroll-blur.on {
+   opacity: 1;
+}
+
+div.overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 10;
+   opacity: 0;
+   pointer-events: none;
+   backdrop-filter: blur(15px);
+   transition: opacity 0.2s ease-in-out;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+div.overlay.shown {
+   opacity: 1;
+}
