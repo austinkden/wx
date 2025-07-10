@@ -90,7 +90,7 @@ div.alert div.event {
 }
 
 div.alert div.event:hover {
-   color: var(--primary-300);
+   color: var(--primary-200);
 }
 
 div.alert h2 {
@@ -127,9 +127,13 @@ div.alert div.buttons button {
    background: var(--card-2);
    color: var(--primary-50);
    cursor: pointer;
-   box-shadow: 0px 0px 10px black;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
    font-size: 15px;
-   transition: color 0.2s ease-in-out;
+   transition: background 0.2s ease-in-out;
+}
+
+div.alert div.buttons button:hover {
+   background: var(--card-3);
 }
 
 button#to-top, button#to-bottom {
